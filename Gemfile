@@ -58,3 +58,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+# install the Active Admin to the project to allow the crud on customers.
+gem 'activeadmin'
