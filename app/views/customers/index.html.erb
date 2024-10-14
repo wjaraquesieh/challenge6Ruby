@@ -1,2 +1,27 @@
-<h1>All Customers</h1>
-<%= render @customers %>
+<h1>Customers List</h1>
+
+<div class="buttonNew">
+  <%= link_to 'Add New Customer', new_customer_path, class: 'button' %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Full Name</th>
+      <th>Phone Number</th>
+      <th>Email Address</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= image_tag customer.image if customer.image.attached? %></td>
+        <td><%= customer.full_name %></td>
+        <td><%= customer.phone_number %></td>
+        <td><%= customer.email_address %></td>
+        <td><%= customer.notes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

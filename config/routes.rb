@@ -14,6 +14,11 @@ Rails.application.routes.draw do
 
   #Configuration routes to the controller actions
   root to: 'customers#index'
-  get 'customers/alphabetized', to: 'customers#alphabetized'
-  get 'customers/missing_email', to: 'customers#missing_email'
+  # Add routes for creating a customer
+  resources :customers, only: [:index, :new, :create] do
+    collection do
+      get :alphabetized
+      get :missing_email
+    end
+  end
 end
